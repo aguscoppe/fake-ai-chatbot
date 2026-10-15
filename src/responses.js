@@ -3,10 +3,21 @@ export const responses = [
   "Comprendo, Martu. Es una situación difícil. Sabes que a mucha gente le importás, no sos…"
 ];
 
+// Keep this list in the same order as `responses`. Place the matching files in
+// public/audio/; use null when a response has no recorded audio.
+export const audioResponses = [
+  '/audio/response-1.mp3',
+  '/audio/response-2.mp3',
+];
+
 export const endOfScript = 'Llegaste al final de las respuestas de esta charla. Empezá un chat nuevo para volver a empezar.';
 
 export function getNextResponse(index) {
   return responses[index] ?? endOfScript;
+}
+
+export function getNextAudioResponse(index) {
+  return audioResponses[index] ?? null;
 }
 
 export function getVisibleText(text, elapsed, charactersPerSecond = 95) {
